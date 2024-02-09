@@ -1,0 +1,207 @@
+/* # Table of Contents
+
+- Login
+    - Variables
+    - Content
+    - Form
+- Media Queries
+	- Max-width: 782px
+    
+*/
+
+/* # Login
+---------------------------------------------------------------------------------------------------- */
+
+/* ## Variables
+--------------------------------------------- */
+
+:root {
+
+    --ma-color-palette0: #4078b1;
+	--ma-color-palette1: #00677f;
+	--ma-color-palette2: #0086a5;
+	--ma-color-palette3: #111111;
+	--ma-color-palette4: #4a5568;
+	--ma-color-palette5: #a5a7a7;
+	--ma-color-palette6: #ffffff;
+
+	--ma-fontsize-small: 14px;
+	--ma-fontsize-normal: 16px;
+
+}
+
+/* ## Content
+--------------------------------------------- */
+
+body { 
+    
+    background: url('../img/login-background-wordpress.webp') no-repeat right bottom var(--ma-color-palette0); 
+    background-attachment: fixed;
+    background-size: cover;
+    height: auto;
+
+}
+
+/* ## Form
+--------------------------------------------- */
+
+// Style login form for session expired iframes
+.interim-login #login { 
+
+    margin-top: 32px;
+    padding: 16px;
+
+}
+
+#login { 
+
+    background-color: var(--ma-color-palette6);
+    border-radius: 5px;
+
+    width: 330px;
+    padding: 32px;
+    margin: 5% auto 0 auto;
+    text-align: center;
+
+    
+    p,
+    div,
+    .message { 
+
+        background: none;
+        box-shadow: none;
+        border-left: none;
+
+        text-align: center;
+        font-weight: 400;
+        font-size: var(--ma-fontsize-normal);
+        line-height: 1.6;
+        font-family: var(--global-body-font-family);
+
+    }
+
+    form { 
+        
+        background: none; 
+        box-shadow: none;
+        border: none;
+        overflow: visible;
+
+        padding: 0px;
+    
+        label { 
+
+            color: var(--ma-color-palette3) !important;
+            font-size: var(--ma-fontsize-small) !important;
+            font-weight: normal !important;
+            margin-bottom: 0.5em !important;
+
+        }
+        
+        .input { 
+
+            color: var(--ma-color-palette4) !important;
+            font-size: var(--ma-fontsize-normal) !important;
+        
+            border: 1px solid var(--ma-color-palette5) !important;
+            border-radius: 5px !important;
+
+        }
+
+        .input:focus,
+        .button.wp-hide-pw:focus { 
+
+            border-color: var(--ma-color-palette4) !important; 
+            box-shadow: inset 0px 0px 3px 3px rgba(0, 0, 0, 5%) !important;
+
+         }
+
+        .forgetmenot { float: none; }
+
+        .submit {
+
+            justify-content: space-around;
+            text-align: center;
+            margin: 1em 0 0;
+
+            .button { 
+                
+                font-size: var(--ma-fontsize-normal) !important;
+                transition: all .25s ease-in-out;
+                border: none;
+                float: none;
+
+            }
+
+            .button:hover { 
+
+                color: var(--ma-color-palette6) !important;
+                background-color: var(--ma-color-palette2) !important;
+                box-shadow: 0px 15px 25px -7px rgba(0, 0, 0, 10%) !important;
+
+            }
+
+            .button:focus { box-shadow: none !important; }
+
+        }
+    
+    }
+
+    #nav,
+    #backtoblog,
+    .privacy-policy-page-link {
+
+        a {
+        
+            font-size: var(--ma-fontsize-normal); 
+            color: var(--ma-color-palette1);
+            text-decoration: none; 
+            &:visited { color: var(--ma-color-palette1); }
+            &:hover { color: var(--ma-color-palette2); }
+
+        }
+        
+    }
+
+    #backtoblog,
+    .privacy-policy-page-link { margin: 0; }
+    
+}
+
+.language-switcher {
+
+    padding: 0;
+    margin: 32px auto;
+    .dashicons-translation:before { color: var(--ma-color-palette6); }
+
+}
+
+// Style the copyright notice at the very end
+.footer {
+
+    color: var(--ma-color-palette6);
+    font-size: var(--ma-fontsize-normal);
+    text-align: center;
+    margin: 32px auto;
+
+    a {
+
+        position: relative;
+        top: 4px;
+        left: 2px;
+    
+    }
+
+}
+
+/* # Media Queries
+---------------------------------------------------------------------------------------------------- */
+
+/* ## Max-width: 782px
+--------------------------------------------- */
+
+@media only screen and (max-width: 782px) {
+
+    #login { width: 260px; }
+
+}
