@@ -284,7 +284,7 @@ function wpw_brand_widget_message_callback() {
 
     global $wpw_options;
     echo '<textarea rows="10" cols="50" id="wpw_brand_widget_message" name="wpw_settings[brand_widget_message]">' .  esc_attr($wpw_options['brand_widget_message']) . '</textarea>';
-    echo '<p class="wpw-description">Message for the dashboard widget. Little html like <strong>br</strong>, <strong>p</strong>, <strong>strong</strong> and <strong>a</strong> are allowed. Empty to hide</p>';
+    echo '<p class="wpw-description">Message for the dashboard widget. Little html like <strong>br</strong>, <strong>p</strong>, <strong>strong</strong>, <strong>a</strong> and <strong>img</strong> are allowed. Empty to hide</p>';
       
 }
 
@@ -294,7 +294,7 @@ function wpw_brand_footnote_callback() {
 
     global $wpw_options;
     echo '<input size="49" type="text" id="wpw_brand_footnote" name="wpw_settings[brand_footnote]" value="' . esc_attr($wpw_options['brand_footnote']) . '" />';
-    echo '<p class="wpw-description">Custom footer text all over the backend. Little html like <strong>br</strong>, <strong>p</strong>, <strong>strong</strong> and <strong>a</strong> are allowed. Empty to hide</p>';
+    echo '<p class="wpw-description">Custom footer text all over the backend. Little html like <strong>br</strong>, <strong>p</strong>, <strong>strong</strong>, <strong>a</strong> and <strong>img</strong> are allowed. Empty to hide</p>';
   
 }
 
@@ -481,10 +481,30 @@ function wpw_code_callback() {
     $checked = isset($wpw_options['code_enable']) && $wpw_options['code_enable'] ? 'checked' : '';
 
     echo '<input type="checkbox" name="wpw_settings[code_enable]" ' . $checked . ' />';
-    echo '<p class="wpw-intro">Clean the code from not necessary HTML for performance or security reasons, e.g. disable xmlrpc.php unless you require it for remote publishing or the Jetpack plugin. </p>';
+    echo '<p class="wpw-intro">Inject code snippets sitewide into the header or footer and clean the code from unnecessary HTML for performance or security reasons, e.g. disable xmlrpc.php unless you require it for remote publishing or the Jetpack plugin.</p>';
 }
 
-/* ### Code omit fields */
+/* ### Code header script field */
+
+function wpw_code_header_callback() {
+
+    global $wpw_options;
+    echo '<textarea rows="10" cols="50" id="wpw_code_header_script" name="wpw_settings[code_header_script]">' .  esc_attr($wpw_options['code_header_script']) . '</textarea>';
+    echo '<p class="wpw-description">Copy & paste any code usually JavaScript or HTML into the head section</p>';
+ 
+}
+
+/* ### Code footer script field */
+
+function wpw_code_footer_callback() {
+
+    global $wpw_options;
+    echo '<textarea rows="10" cols="50" id="wpw_code_footer_script" name="wpw_settings[code_footer_script]">' .  esc_attr($wpw_options['code_footer_script']) . '</textarea>';
+    echo '<p class="wpw-description">Copy & pase any code usually JavaScript or HTML into the footer section</p>';
+ 
+}
+
+/* ### Code disable fields */
 
 function wpw_code_disable_callback() {
 
