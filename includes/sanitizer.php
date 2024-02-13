@@ -55,6 +55,11 @@ function wpw_settings_sanitize($input){
     // Sanitize S3 endpoint title
     if(isset($input['storage_s3_endpoint'])){ $sanitized_input['storage_s3_endpoint'] = sanitize_text_field($input['storage_s3_endpoint']); }
 
+    // Sanitize header & footer scripts
+    if(isset($input['code_header_script'])){ $sanitized_input['code_header_script'] = $input['code_header_script']; }
+    if(isset($input['code_footer_script'])){ $sanitized_input['code_footer_script'] = $input['code_footer_script']; }
+
+
     /* ## Checkboxes
     ------------------------------------------------------------------ */
 

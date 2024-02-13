@@ -4,6 +4,25 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 /* # Code ------------------------------------------------------------------------------- */
 
+/* ## Inject Code
+------------------------------------------------------------------ */
+
+/* ### Header Scripts */
+
+if ( isset( $wpw_options['code_header_script'] ) && $wpw_options['code_header_script'] ) { 
+    
+    add_action('wp_head', function() use ( $wpw_options ) { echo $wpw_options['code_header_script']; } );
+
+}
+
+/* ### Footer Scripts */
+
+if ( isset( $wpw_options['code_footer_script'] ) && $wpw_options['code_footer_script'] ) { 
+    
+    add_action('wp_footer', function() use ( $wpw_options ) { echo $wpw_options['code_footer_script']; } );
+
+}
+
 /* ## Clean HTML Code
 ------------------------------------------------------------------ */
 
