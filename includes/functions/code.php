@@ -6,12 +6,21 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 /* ## Inject Code
 ------------------------------------------------------------------ */
-
+  
 /* ### Header Scripts */
 
 if ( isset( $wpw_options['code_header_script'] ) && $wpw_options['code_header_script'] ) { 
     
-    add_action('wp_head', function() use ( $wpw_options ) { echo $wpw_options['code_header_script']; } );
+    add_action('wp_head', function() use ( $wpw_options ) { 
+        
+        // Inject to all or only if user is not logged in
+        if ( !isset( $wpw_options['code_limit_injection'] ) || !$wpw_options['code_limit_injection'] || !is_user_logged_in() ) {
+        
+            echo $wpw_options['code_header_script']; 
+
+        }
+    
+    } );
 
 }
 
@@ -19,7 +28,16 @@ if ( isset( $wpw_options['code_header_script'] ) && $wpw_options['code_header_sc
 
 if ( isset( $wpw_options['code_footer_script'] ) && $wpw_options['code_footer_script'] ) { 
     
-    add_action('wp_footer', function() use ( $wpw_options ) { echo $wpw_options['code_footer_script']; } );
+    add_action('wp_footer', function() use ( $wpw_options ) { 
+        
+        // Inject to all or only if user is not logged in
+        if ( !isset( $wpw_options['code_limit_injection'] ) || !$wpw_options['code_limit_injection'] || !is_user_logged_in() ) {
+            
+            echo $wpw_options['code_footer_script']; 
+        
+        }
+
+    } );
 
 }
 

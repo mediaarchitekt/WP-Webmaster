@@ -100,6 +100,7 @@ function wpw_settings_sanitize($input){
         'privacy_nocookie_youtube',
         'privacy_google_fonts',
         'code_enable',
+        'code_limit_injection',
         'code_remove_wp_generator',
         'code_remove_wlwmanifest_link',
         'code_remove_xmlrpc',

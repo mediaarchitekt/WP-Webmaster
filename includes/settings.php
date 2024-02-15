@@ -244,7 +244,7 @@ function wpw_settings_init(){
     
     add_settings_field(
         'wpw_backend_main_admin_field',
-        'Main Admin',
+        'Main admin',
         'wpw_backend_main_admin_callback',
         'wpw-backend-page',
         'wpw_backend_section'
@@ -268,23 +268,23 @@ function wpw_settings_init(){
     );
     
      add_settings_field(
-        'wpw_brand_widget_title',
-        'Widget Title',
+        'wpw_brand_widget_title_field',
+        'Widget title',
         'wpw_brand_widget_title_callback',
         'wpw-brand-page',
         'wpw_brand_section'
     );
 
     add_settings_field(
-        'wpw_brand_widget_message',
-        'Widget Message',
+        'wpw_brand_widget_message_field',
+        'Widget message',
         'wpw_brand_widget_message_callback',
         'wpw-brand-page',
         'wpw_brand_section'
     );
 
     add_settings_field(
-        'wpw_brand_footnote',
+        'wpw_brand_footnote_field',
         'Footnote',
         'wpw_brand_footnote_callback',
         'wpw-brand-page',
@@ -295,7 +295,7 @@ function wpw_settings_init(){
 
     add_settings_section(
         'wpw_media_section',
-        'Media Library',
+        'Media library',
         'wpw_media_callback',
         'wpw-media-page'
     );
@@ -312,14 +312,14 @@ function wpw_settings_init(){
 
     add_settings_section(
         'wpw_storage_section',
-        'Object Storage',
+        'Object storage',
         'wpw_storage_callback',
         'wpw-storage-page'
     );
 
     add_settings_field(
         'wpw_storage_s3_endpoint_field',
-        'S3 Endpoint',
+        'S3 endpoint',
         'wpw_storage_s3_endpoint_callback',
         'wpw-storage-page',
         'wpw_storage_section'
@@ -327,7 +327,7 @@ function wpw_settings_init(){
 
     add_settings_field(
         'wpw_storage_s3_parameter_field',
-        'S3 Parameter',
+        'S3 parameter',
         'wpw_storage_s3_parameter_callback',
         'wpw-storage-page',
         'wpw_storage_section'
@@ -360,7 +360,7 @@ function wpw_settings_init(){
     );
     
     add_settings_field(
-        'wpw_privacy_mail',
+        'wpw_privacy_mail_field',
         'Contact data',
         'wpw_privacy_mail_callback',
         'wpw-privacy-page',
@@ -368,7 +368,7 @@ function wpw_settings_init(){
     );
 
     add_settings_field(
-        'wpw_privacy_google',
+        'wpw_privacy_google_field',
         'Google',
         'wpw_privacy_google_callback',
         'wpw-privacy-page',
@@ -385,23 +385,31 @@ function wpw_settings_init(){
     );
     
     add_settings_field(
-        'wpw_code_header',
-        'Header Script',
+        'wpw_code_header_field',
+        'Header script',
         'wpw_code_header_callback',
         'wpw-code-page',
         'wpw_code_section'
     );
 
     add_settings_field(
-        'wpw_code_footer',
-        'Footer Script',
+        'wpw_code_footer_field',
+        'Footer script',
         'wpw_code_footer_callback',
         'wpw-code-page',
         'wpw_code_section'
     );
 
     add_settings_field(
-        'wpw_code_disable',
+        'wpw_code_limit_field',
+        'Limit injection',
+        'wpw_code_limit_injection_callback',
+        'wpw-code-page',
+        'wpw_code_section'
+    );
+
+    add_settings_field(
+        'wpw_code_disable_field',
         'Disable',
         'wpw_code_disable_callback',
         'wpw-code-page',
@@ -419,7 +427,7 @@ function wpw_settings_init(){
     
 
     add_settings_field(
-        'wpw_developer',
+        'wpw_developer_field',
         'Activate',
         'wpw_developer_activate_callback',
         'wpw-developer-page',

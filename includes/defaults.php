@@ -75,6 +75,7 @@ $wpw_options = get_option('wpw_settings', array(
     'code_enable'                       => false,
     'code_header_script'                => '',
     'code_footer_script'                => '',
+    'code_limit_injection'             => false,
     'code_remove_wp_generator'          => true,
     'code_remove_wlwmanifest_link'      => true,
     'code_remove_xmlrpc'                => true,

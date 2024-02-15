@@ -504,6 +504,17 @@ function wpw_code_footer_callback() {
  
 }
 
+/* ### Code limit injection field */
+
+function wpw_code_limit_injection_callback() {
+
+    global $wpw_options;
+    $checked = isset($wpw_options['code_limit_injection']) && $wpw_options['code_limit_injection'] ? 'checked' : '';
+
+    echo '<label><input type="checkbox" name="wpw_settings[code_limit_injection]" ' . $checked . ' /> Do not deploy header or footer scripts to logged in users</label><br>';
+
+}
+
 /* ### Code disable fields */
 
 function wpw_code_disable_callback() {

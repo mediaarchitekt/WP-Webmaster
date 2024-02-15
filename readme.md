@@ -40,9 +40,9 @@ Disable login with usernames which can be read plain at the authors archives or 
 
 Mask email addresses and phone numbers for spam protection by encoding them with ASCII codes. Extend YouTube links with no-cookie-request and disable Google Fonts.
 
-### HTML Code
+### Code
 
-Clean the code from not necessary HTML for performance or security reasons, e.g. disable xmlrpc.php unless you require it for remote publishing or the Jetpack plugin.
+Inject code snippets sitewide into the header or footer and clean the code from unnecessary HTML for performance or security reasons, e.g. disable xmlrpc.php unless you require it for remote publishing or the Jetpack plugin.
 
 ### Development
 
@@ -50,6 +50,10 @@ Options for developing purposes. Not recommended for productive environments.
 
 ## Changelog
 
+### 1.1
+- Feature: Inject code snippets e.g. for tracking
+- Limit injection to not logged in users only
+- Little code cleaning
 ### 1.0
 - Initial Public Release
 
