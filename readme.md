@@ -50,6 +50,8 @@ Options for developing purposes. Not recommended for productive environments.
 
 ## Changelog
 
+### 1.2
+- Feature: Test mail for email and smtp settings 
 ### 1.1
 - Feature: Inject code snippets e.g. for tracking
 - Limit injection to not logged in users only
