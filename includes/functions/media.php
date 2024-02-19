@@ -43,12 +43,16 @@ if ( isset( $wpw_options['media_svg_upload'] ) && $wpw_options['media_svg_upload
 
 if ( isset( $wpw_options['media_svg_images'] ) && $wpw_options['media_svg_images'] ) {
     
-    add_action( 'admin_head', function () {
+    add_action( 'admin_head', 'correct_svg_dimension');
+    add_action( 'wp_head', 'correct_svg_dimension');
+
+    function correct_svg_dimension() {
 
         // Show proper thumbnails in the backend at media list view
-        echo '<style type="text/css">.image-icon img[width="1"] { width: 60px !important; height: 60px !important; }</style>'; 
+        echo '<style type="text/css">.image-icon img[width="1"] { width: 60px; height: auto; }</style>';
+        echo '<style type="text/css">img[src$=".svg"][width="1"] { width: 100%; height: auto; }</style>'; 
     
-    } );
+    }
 
     add_filter( 'wp_get_attachment_image_src', function( $image, $attachment_id, $size, $icon ) {
 
