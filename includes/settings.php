@@ -68,24 +68,52 @@ function wpw_settings_page(){ ?>
 
             do_settings_sections('wpw-developer-page');
             
-            submit_button();
+            submit_button('Save Changes', 'primary', 'save_changes');
             
             ?>
         </form>
+
+        <div class="wpw-button-forms">
+
+            <!-- Reset form for deleting all settings -->
+            <form method="post" action="">
                 
-        <form method="post" action="">
-            
-            <button type="submit" class="button button-secondary" name="wpw_reset_options">Reset all Options</button>
+                <button type="submit" class="button button-secondary" name="wpw_reset_options">Reset all Options</button>
 
-            <?php if (isset($_POST['wpw_reset_options'])) {
+                <?php if (isset($_POST['wpw_reset_options'])) {
 
-                delete_option( 'wpw_settings' ); 
-                echo '<div class="notice notice-success"><p>All settings will be reset.</p></div>';
-                echo '<meta http-equiv="refresh" content="2">';
+                    delete_option( 'wpw_settings' ); 
+                    echo '<div class="notice notice-success"><p>All settings will be reset.</p></div>';
+                    echo '<meta http-equiv="refresh" content="2">';
 
-            } ?>
+                } ?>
 
-        </form>
+            </form>
+
+            <!-- Test form for sending mails -->
+            <form method="post" action="">
+
+                <button type="submit" class="button button-secondary" name="wpw_test_mail">Send Test Mail</button>
+
+                <?php if (isset($_POST['wpw_test_mail'])) {
+
+                    global $wpw_options;
+
+                    // Pick the right recipient depending on the settings
+                    if ( isset( $wpw_options['backend_enable'] ) && !empty( $wpw_options['backend_enable'] ) ) { $recipient = 'Test Recipient <' . $wpw_options['backend_main_admin'] . '>'; }
+                    else { $recipient      = 'Test Recipient <' . get_bloginfo('admin_email') . '>'; }
+
+                    $subject        = "Test Email";
+                    $message_body   = "This is a test email.";
+
+                    if (wp_mail($recipient, $subject, $message_body)) { echo '<div class="notice notice-success"><p>The test email was sent successfully.</p></div>'; }
+                    else { echo '<div class="notice notice-success"><p>An error occurred while sending the test email.<p></div>'; }
+
+                } ?>
+
+            </form>
+
+        </div>
 
     </div>
 

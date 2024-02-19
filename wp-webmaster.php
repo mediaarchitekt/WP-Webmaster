@@ -5,7 +5,7 @@
 * Description: Extends an individual WordPress instance with necessary features and functions.
 * Author: media:architekten
 * Author URI: https://www.mediaarchitekten.com
-* Version: 1.1
+* Version: 1.2
 */
 
 if ( ! defined( 'ABSPATH' ) ) { exit; }
