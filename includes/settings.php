@@ -90,6 +90,24 @@ function wpw_settings_page(){ ?>
 
             </form>
 
+            <!-- Delete all log files -->
+            <form method="post" action="">
+                
+                <button type="submit" class="button button-secondary" name="wpw_delete_logs">Delete all Logs</button>
+
+                <?php if (isset($_POST['wpw_delete_logs'])) {
+
+                    $filename = WP_CONTENT_DIR . '/wpw-mail.log';
+ 
+                    if (file_exists($filename)) {
+                        if (unlink($filename)) { echo '<div class="notice notice-success"><p>Mail log file deleted.</p></div>'; }
+                        else { echo '<div class="notice notice-success"><p>Could not delete mail log file.</p></div>'; }
+                    } else { echo '<div class="notice notice-success"><p>Nothing to delete.</p></div>'; }
+
+                } ?>
+
+            </form>
+
             <!-- Test form for sending mails -->
             <form method="post" action="">
 
@@ -101,13 +119,13 @@ function wpw_settings_page(){ ?>
 
                     // Pick the right recipient depending on the settings
                     if ( isset( $wpw_options['backend_enable'] ) && !empty( $wpw_options['backend_enable'] ) ) { $recipient = 'Test Recipient <' . $wpw_options['backend_main_admin'] . '>'; }
-                    else { $recipient      = 'Test Recipient <' . get_bloginfo('admin_email') . '>'; }
+                    else { $recipient = 'Test Recipient <' . get_bloginfo('admin_email') . '>'; }
 
                     $subject        = "Test Email";
                     $message_body   = "This is a test email.";
 
                     if (wp_mail($recipient, $subject, $message_body)) { echo '<div class="notice notice-success"><p>The test email was sent successfully.</p></div>'; }
-                    else { echo '<div class="notice notice-success"><p>An error occurred while sending the test email.<p></div>'; }
+                    else { echo '<div class="notice notice-success"><p>An error occurred while sending the test email.</p></div>'; }
 
                 } ?>
 

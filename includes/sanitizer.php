@@ -59,7 +59,6 @@ function wpw_settings_sanitize($input){
     if(isset($input['code_header_script'])){ $sanitized_input['code_header_script'] = $input['code_header_script']; }
     if(isset($input['code_footer_script'])){ $sanitized_input['code_footer_script'] = $input['code_footer_script']; }
 
-
     /* ## Checkboxes
     ------------------------------------------------------------------ */
 
@@ -71,7 +70,8 @@ function wpw_settings_sanitize($input){
         'email_updates_core',
         'smtp_enable',
         'smtp_selfsigned',
-        'smtp_debuglevel',
+        'smtp_debugging',
+        'smtp_logging',
         'login_enable',
         'login_hide_language',
         'backend_enable',

@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
  * @package WP Webmaster
  */
 
- global $wpw_config;
+global $wpw_config;
 
 /** Put all your individual defaults in here */
 

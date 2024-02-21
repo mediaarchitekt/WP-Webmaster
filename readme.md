@@ -50,6 +50,9 @@ Options for developing purposes. Not recommended for productive environments.
 
 ## Changelog
 
+### 1.3
+- Feature: Log email actions in separate file
+- Advanced output of email errors via alert for debugging purposes
 ### 1.2
 - Feature: Test mail for email and smtp settings 
 ### 1.1

@@ -74,10 +74,10 @@ function wpw_smtp_callback() {
     $checked = isset($wpw_options['smtp_enable']) && $wpw_options['smtp_enable'] ? 'checked' : '';
 
     echo '<input type="checkbox" name="wpw_settings[smtp_enable]" ' . $checked . ' />';
-    echo '<p class="wpw-intro">Send all emails via SMTP. Encryption like SSL or TLS is mandatory. Allow self-signed certificates for debugging only. Attention: server errors are shown in the frontend code directly!</p>';
+    echo '<p class="wpw-intro">Send all emails via SMTP. Encryption like SSL or TLS is mandatory. Allow self-signed certificates, server errors and log files for debugging only.</p>';
 
 }
-
+ 
 /* ### SMTP host field */
 
 function wpw_smtp_host_callback() {
@@ -141,10 +141,12 @@ function wpw_smtp_encryption_callback() {
 function wpw_smtp_debugging_callback() {
 
     global $wpw_options;
+    global $wpw_plugin_url;
     $field = array(
 
-        'smtp_selfsigned'       => 'Allow self-signed certificate',
-        'smtp_debuglevel'       => 'Show server errors'
+        'smtp_selfsigned'   => 'Allow self-signed certificate',
+        'smtp_debugging'    => 'Show server errors',
+        'smtp_logging'      => 'Log to file <a class="wpw-button" href="' . WP_CONTENT_URL . '/wpw-mail.log" target="_blank" rel="noopener" type="text/plain">download</a>'
 
     );
     
