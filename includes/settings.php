@@ -14,9 +14,9 @@ function wpw_settings_menu(){
     add_options_page(
         'WP Webmaster',           // Title of settingspage
         'WP Webmaster',           // Display name at the menu
-        'manage_options',           // Rights for display
+        'manage_options',         // Rights for display
         'wp-webmaster',           // Slug
-        'wpw_settings_page'         // function callback for the content
+        'wpw_settings_page'       // function callback for the content
     );
 
 }
@@ -147,7 +147,7 @@ function wpw_settings_init(){
 
     global $wpw_plugin_path;
     require_once $wpw_plugin_path . 'includes/defaults.php';
-
+    
     /* ### Register new settings group */
 
     register_setting(
@@ -473,7 +473,7 @@ function wpw_settings_init(){
     
 
     add_settings_field(
-        'wpw_developer_field',
+        'wpw_developer_activate_field',
         'Activate',
         'wpw_developer_activate_callback',
         'wpw-developer-page',
