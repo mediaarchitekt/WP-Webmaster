@@ -391,11 +391,30 @@ function wpw_security_callback() {
     $checked = isset($wpw_options['security_enable']) && $wpw_options['security_enable'] ? 'checked' : '';
 
     echo '<input type="checkbox" name="wpw_settings[security_enable]" ' . $checked . ' />';
-    echo '<p class="wpw-intro">Disable login with usernames which can be read plain at the authors archives or restrict admin creation to admins only even though editors are setup to create users too.</p>';
+    echo '<p class="wpw-intro">Lockdown brute force attacks, disable login with usernames which can be read plain at the authors archives or restrict admin creation to admins only even though editors are setup to create users too.</p>';
 
 }
 
-/* ### Security fields */
+/* ### Security lockdown fields */
+
+function wpw_security_lockdown_callback() {
+
+    $field = array(
+        
+        'security_lockdown_bruteforce' => 'Block IPs committing brute force attacks (<strong>1 hour after 3 attempts</strong>)',
+        'security_lockdown_logging'    => 'Log to file  <a class="wpw-button" href="' . WP_CONTENT_URL . '/wpw-lock.log" target="_blank" rel="noopener" type="text/plain">download</a>'
+
+    );
+
+    global $wpw_options;
+    foreach ($field as $function_key => $function_label) {
+        $checked = isset($wpw_options[$function_key]) && $wpw_options[$function_key] ? 'checked' : '';
+        echo '<label><input type="checkbox" name="wpw_settings[' . $function_key . ']" ' . $checked . ' /> ' . $function_label . '</label><br>';
+    }
+
+}
+
+/* ### Security disable fields */
 
 function wpw_security_disable_callback() {
 

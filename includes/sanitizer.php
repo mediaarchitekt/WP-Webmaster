@@ -91,6 +91,8 @@ function wpw_settings_sanitize($input){
         'storage_s3_path',
         'storage_s3_debug',
         'security_enable',
+        'security_lockdown_bruteforce',
+        'security_lockdown_logging',
         'security_disable_username_login',
         'security_disable_creating_admins',
         'privacy_enable',

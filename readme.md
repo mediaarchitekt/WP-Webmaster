@@ -34,7 +34,7 @@ Enable AWS S3 third party compatibility. Overwrites the default AWS endpoint for
 
 ### Security
 
-Disable login with usernames which can be read plain at the authors archives or restrict admin creation to admins only even though editors are setup to create users too.
+Lockdown brute force attacks, disable login with usernames which can be read plain at the authors archives or restrict admin creation to admins only even though editors are setup to create users too.
 
 ### Privacy
 
@@ -50,6 +50,10 @@ Options for developing purposes. Not recommended for productive environments.
 
 ## Changelog
 
+### 1.4
+- Feature: Login lockdown for brute force attacks by blocking IPs for 1 hour after 3 failed login attempts
+- Log blocked ips to a seperate file
+- Function to unblock all blocked IPs
 ### 1.3
 - Feature: Log email actions in separate file
 - Advanced output of email errors via alert for debugging purposes

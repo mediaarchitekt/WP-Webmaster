@@ -97,12 +97,51 @@ function wpw_settings_page(){ ?>
 
                 <?php if (isset($_POST['wpw_delete_logs'])) {
 
-                    $filename = WP_CONTENT_DIR . '/wpw-mail.log';
- 
-                    if (file_exists($filename)) {
-                        if (unlink($filename)) { echo '<div class="notice notice-success"><p>Mail log file deleted.</p></div>'; }
-                        else { echo '<div class="notice notice-success"><p>Could not delete mail log file.</p></div>'; }
+                    $maillog = WP_CONTENT_DIR . '/wpw-mail.log';
+                    $locklog = WP_CONTENT_DIR . '/wpw-lock.log';
+                    
+                    if (file_exists($maillog)) {
+
+                        if (unlink($maillog)) { echo '<div class="notice notice-success"><p>Log for outgoing mails deleted.</p></div>'; }
+                        else { echo '<div class="notice notice-error"><p>Could not delete mail log file.</p></div>'; }
+
+                    } elseif (file_exists($locklog)) {
+
+                        if (unlink($locklog)) { echo '<div class="notice notice-success"><p>Log for blocked ip addresses deleted.</p></div>'; }
+                        else { echo '<div class="notice notice-error"><p>Could not delete lockdown log file.</p></div>'; }
+
                     } else { echo '<div class="notice notice-success"><p>Nothing to delete.</p></div>'; }
+
+                } ?>
+
+            </form>
+
+            <!-- Unblock all blocked IPs -->
+            <form method="post" action="">
+                
+                <button type="submit" class="button button-secondary" name="wpw_delete_locks">Unblock all IPs</button>
+
+                <?php if (isset($_POST['wpw_delete_locks'])) {
+
+                    global $wpdb;
+                    $transient_marker = 'wpw_attempted_login';
+                    $query = "
+                        SELECT option_name
+                        FROM $wpdb->options 
+                        WHERE option_name LIKE '%".$transient_marker."%'
+                    ";
+                    $transients = $wpdb->get_results($query);
+
+                    // Iterating over each transient, etting the name field and remove
+                    foreach($transients as $transient) {
+                        
+                        $name = $transient->option_name;
+                        $transient_name = str_replace(array('_transient_timeout_', '_transient_'), '', $name);
+                        delete_transient($transient_name);
+
+                    }
+                    
+                    echo '<div class="notice notice-success"><p>All blocked ips deleted.</p></div>';
 
                 } ?>
 
@@ -386,6 +425,14 @@ function wpw_settings_init(){
         'Security',
         'wpw_security_callback',
         'wpw-security-page'
+    );
+
+    add_settings_field(
+        'wpw_security_lockdown_field',
+        'Lockdown',
+        'wpw_security_lockdown_callback',
+        'wpw-security-page',
+        'wpw_security_section'
     );
     
     add_settings_field(
