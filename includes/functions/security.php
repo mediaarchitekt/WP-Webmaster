@@ -24,19 +24,6 @@ if ( isset( $wpw_options['security_lockdown_bruteforce'] ) && $wpw_options['secu
             $datas = get_transient( 'wpw_attempted_login_' . $ip );
 
             if ( $datas['tried'] >= 3 ) {
-
-                // Read options from database
-                $wpw_options = get_option('wpw_settings');
-                
-                 // Write blocked ip to log file when logging is enabled
-                if ( isset( $wpw_options['security_lockdown_logging'] ) && $wpw_options['security_lockdown_logging'] ) {
-
-                    $logfile = WP_CONTENT_DIR . '/wpw-lock.log';
-                    $filepointer = fopen($logfile, 'a');
-                    fputs($filepointer, date_i18n( 'Y-m-d H:i:s' ) . " - blocked " . $ip . "\n");
-                    fclose($filepointer);
-
-                }
         
                 $until = get_option( '_transient_timeout_' . 'wpw_attempted_login_' . $ip );
                 $time = time_to_go( $until );
@@ -70,6 +57,19 @@ if ( isset( $wpw_options['security_lockdown_bruteforce'] ) && $wpw_options['secu
             );
 
             set_transient( 'wpw_attempted_login_' . $ip, $datas , 3600 );
+
+        }
+
+        $wpw_options = get_option('wpw_settings');
+                
+        // Write failing ip to log file when logging is enabled
+        if ( isset( $wpw_options['security_lockdown_logging'] ) && $wpw_options['security_lockdown_logging'] ) {
+
+           $logfile = WP_CONTENT_DIR . '/wpw-lock.log';
+           $filepointer = fopen($logfile, 'a');
+           if ( $datas['tried'] < 3 ) { fputs($filepointer, date_i18n( 'Y-m-d H:i:s' ) . " - " . $ip . " - failed login as " . $username . "\n"); }
+           if ( $datas['tried'] == 3 ) { fputs($filepointer, date_i18n( 'Y-m-d H:i:s' ) . " - " . $ip . " - failed login as " . $username . " - blocked \n"); }
+           fclose($filepointer);
 
         }
 
