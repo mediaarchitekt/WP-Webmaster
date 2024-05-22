@@ -21,6 +21,7 @@ if ( isset( $wpw_options['backend_hide_adminbar_items'] ) && $wpw_options['backe
         $wp_admin_bar->remove_node('themes');
         $wp_admin_bar->remove_node('widgets');
         $wp_admin_bar->remove_node('menus');
+        $wp_admin_bar->remove_node('plugins');
         $wp_admin_bar->remove_node('dashboard');
         $wp_admin_bar->remove_node('view-site');
 
