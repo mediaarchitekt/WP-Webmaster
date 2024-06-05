@@ -401,7 +401,7 @@ function wpw_security_lockdown_callback() {
 
     $field = array(
         
-        'security_lockdown_bruteforce' => 'Block IPs committing brute force attacks (<strong>1 hour after 3 attempts</strong>)',
+        'security_lockdown_bruteforce' => 'Block IPs committing brute force attacks (<strong>6 hours after 3 attempts</strong>)',
         'security_lockdown_logging'    => 'Log to file  <a class="wpw-button" href="' . WP_CONTENT_URL . '/wpw-lock.log" target="_blank" rel="noopener" type="text/plain">download</a>'
 
     );
