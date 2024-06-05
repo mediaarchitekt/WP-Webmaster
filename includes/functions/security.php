@@ -48,8 +48,7 @@ if ( isset( $wpw_options['security_lockdown_bruteforce'] ) && $wpw_options['secu
             $datas = get_transient( 'wpw_attempted_login_' . $ip );
             $datas['tried']++;
 
-            if ( $datas['tried'] < 3 ) { set_transient( 'wpw_attempted_login_' . $ip, $datas , 3600 ); } // Expiration of counting failed logins in seconds (3600s = 1h)
-            if ( $datas['tried'] = 3 ) { set_transient( 'wpw_attempted_login_' . $ip, $datas , 21600 ); } // Expiration of blocked IPs in seconds (21600s = 6h)
+            if ( $datas['tried'] <= 3 ) { set_transient( 'wpw_attempted_login_' . $ip, $datas , 86400 ); } // Expiration of counting failed logins in seconds (86400s = 24h)
 
         } else {
             
@@ -57,7 +56,7 @@ if ( isset( $wpw_options['security_lockdown_bruteforce'] ) && $wpw_options['secu
                 'tried'     => 1
             );
 
-            set_transient( 'wpw_attempted_login_' . $ip, $datas , 3600 );
+            set_transient( 'wpw_attempted_login_' . $ip, $datas , 86400 );
 
         }
 
