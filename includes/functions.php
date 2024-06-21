@@ -32,6 +32,17 @@ if ( isset( $wpw_options['smtp_enable'] ) && !empty( $wpw_options['smtp_enable']
 
 }
 
+/* ## Frontend
+------------------------------------------------------------------ */
+
+/* ### Frontend tweaks */
+
+if ( isset( $wpw_options['frontend_enable'] ) && !empty( $wpw_options['frontend_enable'] ) ) {
+
+    require_once $wpw_plugin_path . 'includes/functions/frontend.php';
+
+}
+
 /* ## Login
 ------------------------------------------------------------------ */
 

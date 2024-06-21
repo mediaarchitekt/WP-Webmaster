@@ -2,28 +2,20 @@
 
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-// Get blog infos
-$wpw_site_name          = get_bloginfo('name');
-$wpw_site_url           = get_bloginfo('url');
-$wpw_site_host          = str_replace(array('https://', 'http://', 'www.'), '', $wpw_site_url);
-$wpw_email_address      = 'info@' . $wpw_site_host;
-$wpw_login_logo         = $wpw_site_url . '/wp-admin/images/wordpress-logo.svg';
-$wpw_login_credits      = '&copy; ' . $wpw_site_name;
-$wpw_backend_main_admin = get_bloginfo('admin_email');
-
-// Overwrite defaults with individual setting from config file
-global $wpw_config;
-if ( isset($wpw_config['login_logo']) && $wpw_config['login_logo'] ) { $wpw_login_logo = $wpw_config['login_logo']; }
-if ( isset($wpw_config['login_credits']) && $wpw_config['login_credits'] ) { $wpw_login_credits  = $wpw_config['login_credits']; }
-if ( isset($wpw_config['backend_main_admin']) && $wpw_config['backend_main_admin'] ) { $wpw_backend_main_admin  = $wpw_config['backend_main_admin']; }
-if ( isset($wpw_config['brand_widget_title']) && $wpw_config['brand_widget_title'] ) { $wpw_brand_widget_title  = $wpw_config['brand_widget_title']; }
-if ( isset($wpw_config['brand_widget_message']) && $wpw_config['brand_widget_message'] ) { $wpw_brand_widget_message  = $wpw_config['brand_widget_message']; }
-if ( isset($wpw_config['brand_footnote']) && $wpw_config['brand_footnote'] ) { $wpw_brand_footnote  = $wpw_config['brand_footnote']; }
-if ( isset($wpw_config['storage_s3_endpoint']) && $wpw_config['storage_s3_endpoint'] ) { $wpw_storage_s3_endpoint  = $wpw_config['storage_s3_endpoint']; }
-
-// Retrieve options from database
+global $wpw_plugin_path;
 global $wpw_options;
-$wpw_options = get_option('wpw_settings', array(
+
+// Get blog infos
+$wpw_site_name              = get_bloginfo('name');
+$wpw_site_url               = get_bloginfo('url');
+$wpw_site_host              = str_replace(array('https://', 'http://', 'www.'), '', $wpw_site_url);
+$wpw_email_address          = 'info@' . $wpw_site_host;
+$wpw_login_logo             = $wpw_site_url . '/wp-admin/images/wordpress-logo.svg';
+$wpw_login_credits          = '&copy; ' . $wpw_site_name;
+$wpw_backend_main_admin     = get_bloginfo('admin_email');
+
+// Default options array
+$wpw_default_options = array(
     'email_enable'                      => false,
     'email_name'                        => $wpw_site_name,
     'email_address'                     => $wpw_email_address,
@@ -39,6 +31,8 @@ $wpw_options = get_option('wpw_settings', array(
     'smtp_selfsigned'                   => false,
     'smtp_debugging'                    => 0,
     'smtp_logging'                      => false,
+    'frontend_enable'                   => false,
+    'frontend_filter_cats'              => '',
     'login_enable'                      => false,
     'login_logo'                        => $wpw_login_logo,
     'login_credits'                     => $wpw_login_credits,
@@ -53,15 +47,15 @@ $wpw_options = get_option('wpw_settings', array(
     'backend_hide_health'               => true,
     'backend_hide_wpw_settings'         => true,
     'brand_enable'                      => false,
-    'brand_widget_title'                => $wpw_brand_widget_title,
-    'brand_widget_message'              => $wpw_brand_widget_message,
-    'brand_footnote'                    => $wpw_brand_footnote,
+    'brand_widget_title'                => '',
+    'brand_widget_message'              => '',
+    'brand_footnote'                    => '',
     'media_enable'                      => false,
     'media_svg_upload'                  => true,
     'media_svg_images'                  => true,
     'media_per_year'                    => true,
     'storage_enable'                    => false,
-    'storage_s3_endpoint'               => $wpw_storage_s3_endpoint,
+    'storage_s3_endpoint'               => '',
     'storage_s3_path'                   => false,
     'storage_s3_debug'                  => false,
     'security_enable'                   => false,
@@ -85,6 +79,16 @@ $wpw_options = get_option('wpw_settings', array(
     'code_remove_emoij_support'         => true,
     'developer_enable'                  => false,
     'developer_hooks_reference'         => false
-));
+);
+
+// Load config file if exists for individual settings
+include_once $wpw_plugin_path . 'wpw-config.php';
+
+// Merge with $wpw_config from external configuration file (overwriting defaults)
+if (isset($wpw_config) && is_array($wpw_config)) { $wpw_default_options = array_merge($wpw_default_options, $wpw_config); }
+
+// Merge with current options from database
+$wpw_current_options = get_option('wpw_settings', array());
+$wpw_options = array_merge($wpw_default_options, $wpw_current_options);
 
 ?>

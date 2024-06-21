@@ -37,6 +37,9 @@ function wpw_settings_sanitize($input){
     if(isset($input['smtp_encryption'])){ $sanitized_input['smtp_encryption'] = sanitize_text_field($input['smtp_encryption']); }
     if(isset($input['smtp_port'])){ $sanitized_input['smtp_port'] = sanitize_text_field($input['smtp_port']); }
 
+    // Sanitize categories for frontend loop
+    if(isset($input['frontend_filter_cats'])){ $sanitized_input['frontend_filter_cats'] = sanitize_text_field($input['frontend_filter_cats']); }
+
     // Sanitize Login logo
     if(isset($input['login_logo']) && !empty($input['login_logo'])){ $sanitized_input['login_logo'] = sanitize_text_field($input['login_logo']); }
     else { $sanitized_input['login_logo'] = get_bloginfo('url') . '/wp-admin/images/wordpress-logo.svg'; }
@@ -72,6 +75,7 @@ function wpw_settings_sanitize($input){
         'smtp_selfsigned',
         'smtp_debugging',
         'smtp_logging',
+        'frontend_enable',
         'login_enable',
         'login_hide_language',
         'backend_enable',

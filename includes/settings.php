@@ -42,6 +42,9 @@ function wpw_settings_page(){ ?>
             do_settings_sections('wpw-smtp-page');
             echo '<hr>';
 
+            do_settings_sections('wpw-frontend-page');
+            echo '<hr>';
+
             do_settings_sections('wpw-login-page');
             echo '<hr>';
 
@@ -283,6 +286,23 @@ function wpw_settings_init(){
         'wpw_smtp_debugging_callback',
         'wpw-smtp-page',
         'wpw_smtp_section'
+    );
+
+    /* ### Frontend */
+
+    add_settings_section(
+        'wpw_frontend_section',
+        'Frontend',
+        'wpw_frontend_callback',
+        'wpw-frontend-page'
+    );
+    
+    add_settings_field(
+        'wpw_frontend_filter_cats_field',
+        'Filter the loop',
+        'wpw_frontend_filter_cats_callback',
+        'wpw-frontend-page',
+        'wpw_frontend_section'
     );
 
     /* ### Login */

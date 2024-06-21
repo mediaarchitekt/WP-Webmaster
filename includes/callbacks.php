@@ -159,6 +159,31 @@ function wpw_smtp_debugging_callback() {
 
 }
 
+/* ## Frontend settings
+------------------------------------------------------------------ */
+
+/* ### Section Frontend */
+
+function wpw_frontend_callback() {
+
+    global $wpw_options;
+    $checked = isset($wpw_options['frontend_enable']) && $wpw_options['frontend_enable'] ? 'checked' : '';
+
+    echo '<input type="checkbox" name="wpw_settings[frontend_enable]" ' . $checked . ' />';
+    echo '<p class="wpw-intro">Prevent individual defined categories from beeing displayed as blog posts at the frontend.</p>';
+
+}
+
+/* ### Frontend filter categories out of the loop */
+
+function wpw_frontend_filter_cats_callback() {
+
+    global $wpw_options;
+    echo '<input type="text" size="48" id="wpw_frontend_filter_cats" name="wpw_settings[frontend_filter_cats]" placeholder="uncategorized" value="' . esc_attr($wpw_options['frontend_filter_cats']) . '" />';
+    echo '<p class="wpw-description">Comma separeted list of category slugs.<p>';
+
+}
+
 /* ## Login settings
 ------------------------------------------------------------------ */
 

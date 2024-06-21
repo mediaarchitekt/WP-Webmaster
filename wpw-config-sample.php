@@ -7,6 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
  *
  * This file contains the following configurations:
  *
+ * * frontend_filter_loop   // Comma separated list of category names not shown in blog loop
  * * login_logo             // URL for custom logo on login page 
  * * login_credits          // Individual Footnote on login page
  * * backend_main_admin     // Email-address of the privileged main admin
@@ -23,6 +24,7 @@ global $wpw_config;
 /** Put all your individual defaults in here */
 
 $wpw_config = array(
+    'frontend_filter_cats'  => '',
     'login_logo'            => '',
     'login_credits'         => '',
     'backend_main_admin'    => '',

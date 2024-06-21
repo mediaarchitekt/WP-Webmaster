@@ -50,8 +50,11 @@ Options for developing purposes. Not recommended for productive environments.
 
 ## Changelog
 
+### 1.5
+- Feature: Prevent individual defined categories from being displayed as blog posts at the frontend.
+- Fix: Merging default, config, and current settings with error handling when option is not in the database
 ### 1.4
-- Feature: Login lockdown for brute force attacks by blocking IPs for 1 hour after 3 failed login attempts
+- Feature: Login lockdown for brute force attacks by blocking IPs for 24 hours after 3 failed login attempts
 - Log blocked ips to a seperate file
 - Function to unblock all blocked IPs
 ### 1.3

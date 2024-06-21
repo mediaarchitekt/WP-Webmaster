@@ -5,7 +5,7 @@
 * Description: Extends an individual WordPress instance with necessary features and functions.
 * Author: media:architekten
 * Author URI: https://www.mediaarchitekten.com
-* Version: 1.4
+* Version: 1.5
 */
 
 if ( ! defined( 'ABSPATH' ) ) { exit; }
@@ -36,9 +36,6 @@ add_action('admin_enqueue_scripts', function() {
 add_action('admin_menu', function () {
 
     global $wpw_plugin_path;
-
-    // Load config file if exists for individual settings
-    include($wpw_plugin_path . 'wpw-config.php');
     
     // Include settings page
     require_once $wpw_plugin_path . 'includes/settings.php';
