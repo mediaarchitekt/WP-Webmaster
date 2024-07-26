@@ -76,6 +76,7 @@ function wpw_settings_sanitize($input){
         'smtp_debugging',
         'smtp_logging',
         'frontend_enable',
+        'frontend_cf7_popup',
         'login_enable',
         'login_hide_language',
         'backend_enable',

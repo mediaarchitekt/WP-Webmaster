@@ -9,6 +9,25 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 /* ### Filter categories out of the loop */
 
+if ( isset( $wpw_options['frontend_cf7_popup'] ) && $wpw_options['frontend_cf7_popup'] ) {
+
+    add_action( 'wp_enqueue_scripts', function() {
+        
+        global $wpw_plugin_url;
+        $cf7spVersion = '1.6';
+
+        wp_enqueue_script( 'cf7simplepopup', $wpw_plugin_url . 'assets/js/cf7simplepopup.js', null, $cf7spVersion, true );
+        wp_enqueue_script( 'sweetalert', $wpw_plugin_url . 'assets/js/sweetalert.min.js', null, $cf7spVersion, true );
+
+        // Use handle of CF7 to implement inline css to hide classic response output
+        wp_add_inline_style( 'contact-form-7', '.wpcf7-response-output { display: none !important; }' );
+
+    });
+
+}
+
+/* ### Filter categories out of the loop */
+
 if ( isset( $wpw_options['frontend_filter_cats'] ) && $wpw_options['frontend_filter_cats'] ) {
     
     add_action( 'pre_get_posts', function($query) use ( $wpw_options ) {

@@ -33,6 +33,7 @@ $wpw_default_options = array(
     'smtp_logging'                      => false,
     'frontend_enable'                   => false,
     'frontend_filter_cats'              => '',
+    'frontend_cf7_popup'                => false,
     'login_enable'                      => false,
     'login_logo'                        => $wpw_login_logo,
     'login_credits'                     => $wpw_login_credits,

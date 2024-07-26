@@ -184,6 +184,17 @@ function wpw_frontend_filter_cats_callback() {
 
 }
 
+/* ### Frontend Contact Form 7 message popup */
+
+function wpw_frontend_cf7_popup_callback() {
+
+    global $wpw_options;
+
+    $checked = isset($wpw_options['frontend_cf7_popup']) && $wpw_options['frontend_cf7_popup'] ? 'checked' : '';
+    echo '<label><input type="checkbox" name="wpw_settings[frontend_cf7_popup]" ' . $checked . ' /> Show form messages as popup</label><br>';
+
+}
+
 /* ## Login settings
 ------------------------------------------------------------------ */
 
@@ -210,6 +221,8 @@ function wpw_login_logo_callback() {
 
 }
 
+/* ### Login credit beneath form */
+
 function wpw_login_credits_callback() {
 
     global $wpw_options;
@@ -218,6 +231,8 @@ function wpw_login_credits_callback() {
     echo '<p class="wpw-description">HTML allowed. Leave empty for disabling the footer.<p>';
 
 }
+
+/* ### Login hide options e.g. language switch */
 
 function wpw_login_hide_callback() {
 

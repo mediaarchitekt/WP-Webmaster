@@ -50,6 +50,8 @@ Options for developing purposes. Not recommended for productive environments.
 
 ## Changelog
 
+### 1.6
+- Feature: Implement JavaScript popups for the Contact Form 7 reponse output
 ### 1.5
 - Feature: Prevent individual defined categories from being displayed as blog posts at the frontend.
 - Fix: Merging default, config, and current settings with error handling when option is not in the database

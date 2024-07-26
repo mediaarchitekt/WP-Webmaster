@@ -296,11 +296,19 @@ function wpw_settings_init(){
         'wpw_frontend_callback',
         'wpw-frontend-page'
     );
-    
+
     add_settings_field(
         'wpw_frontend_filter_cats_field',
         'Filter the loop',
         'wpw_frontend_filter_cats_callback',
+        'wpw-frontend-page',
+        'wpw_frontend_section'
+    );
+    
+    add_settings_field(
+        'wpw_frontend_cf7_popup',
+        'Contact Form 7 Popup',
+        'wpw_frontend_cf7_popup_callback',
         'wpw-frontend-page',
         'wpw_frontend_section'
     );
