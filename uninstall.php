@@ -8,5 +8,3 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 ------------------------------------------------------------------ */
 
 if ( defined( 'WP_UNINSTALL_PLUGIN' ) ) { delete_option( 'wpw_settings' ); }
-
-?>

@@ -34,5 +34,3 @@ if ( isset( $wpw_options['brand_footnote'] ) && !empty( $wpw_options['brand_foot
     add_filter('admin_footer_text', function() use ( $wpw_options ) { echo $wpw_options['brand_footnote'] . ' '; } );
 
 }
-
-?>

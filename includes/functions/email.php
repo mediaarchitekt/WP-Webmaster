@@ -26,5 +26,3 @@ if ( isset( $wpw_options['email_address'] ) && !empty( $wpw_options['email_addre
 if ( isset( $wpw_options['email_updates_core'] ) && !empty( $wpw_options['email_updates_core'] ) ) add_filter( 'auto_core_update_send_email', '__return_false' ); 
 if ( isset( $wpw_options['email_updates_plugins'] ) && !empty( $wpw_options['email_updates_plugins'] ) ) add_filter( 'auto_plugin_update_send_email', '__return_false' );
 if ( isset( $wpw_options['email_updates_themes'] ) && !empty( $wpw_options['email_updates_themes'] ) ) add_filter( 'auto_theme_update_send_email', '__return_false' );
-
-?>

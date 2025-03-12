@@ -34,6 +34,7 @@ $wpw_default_options = array(
     'frontend_enable'                   => false,
     'frontend_filter_cats'              => '',
     'frontend_cf7_popup'                => false,
+    'frontend_mediacontext_off'         => true,
     'login_enable'                      => false,
     'login_logo'                        => $wpw_login_logo,
     'login_credits'                     => $wpw_login_credits,
@@ -91,5 +92,3 @@ if (isset($wpw_config) && is_array($wpw_config)) { $wpw_default_options = array_
 // Merge with current options from database
 $wpw_current_options = get_option('wpw_settings', array());
 $wpw_options = array_merge($wpw_default_options, $wpw_current_options);
-
-?>

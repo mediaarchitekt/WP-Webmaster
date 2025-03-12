@@ -87,5 +87,3 @@ if ( isset( $wpw_options['developer_hooks_reference'] ) && $wpw_options['develop
     } );
 
 }
-
-?>

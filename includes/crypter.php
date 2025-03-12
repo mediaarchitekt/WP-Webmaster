@@ -69,5 +69,3 @@ function wpw_decrypt_password($encrypted_password) {
     return $decrypted_password;
     
 }
-
-?>

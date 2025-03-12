@@ -146,5 +146,3 @@ if ( isset( $wpw_options['backend_hide_wpw_settings'] ) && $wpw_options['backend
     } );
     
 }
-
-?>

@@ -156,5 +156,3 @@ if ( isset( $wpw_options['security_disable_creating_admins'] ) && $wpw_options['
     } );
 
 }
-
-?>

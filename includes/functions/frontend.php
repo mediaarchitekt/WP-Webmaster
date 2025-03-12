@@ -55,3 +55,15 @@ if ( isset( $wpw_options['frontend_filter_cats'] ) && $wpw_options['frontend_fil
     } );
 
 }
+
+
+if ( isset( $wpw_options['frontend_mediacontext_off'] ) && $wpw_options['frontend_mediacontext_off'] ) {
+
+    add_action('wp_enqueue_scripts', function() { 
+
+        global $wpw_plugin_url;
+        wp_enqueue_script( 'frontend_mediacontext_off', $wpw_plugin_url . 'assets/js/mediacontextoff.js', null, 1.0, true );
+
+    });
+
+}

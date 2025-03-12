@@ -93,5 +93,3 @@ if (isset($wpw_options['smtp_logging']) && $wpw_options['smtp_logging']) {
     } );
 
 }
-
-?>

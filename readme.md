@@ -12,6 +12,10 @@ Customize email headers like name and email address for all outgoing messages. T
 
 Send all emails via SMTP. Encryption like SSL or TLS is mandatory. Allow self-signed certificates for debugging only. Attention: server errors are shown in the frontend code directly!
 
+### Frontend
+
+Prevent individual defined categories from beeing displayed as blog posts at the frontend, beautify Contact Form 7 with popup messages and protect media files form download via context menu.
+
 ### Login 
 
 Setup a custom design for the login page. Choose your own logo above the login form and use credits in the footer beneath. Further styles are found in the assets folder of this plugin.
@@ -50,6 +54,9 @@ Options for developing purposes. Not recommended for productive environments.
 
 ## Changelog
 
+### 1.7
+- Feature: Implement JavaScript for disabling context menus with download options for audio elements
+- Little code cleaning
 ### 1.6
 - Feature: Implement JavaScript popups for the Contact Form 7 reponse output
 ### 1.5

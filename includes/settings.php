@@ -313,6 +313,14 @@ function wpw_settings_init(){
         'wpw_frontend_section'
     );
 
+    add_settings_field(
+        'wpw_frontend_mediacontext_off',
+        'Media context menus',
+        'wpw_frontend_mediacontext_off_callback',
+        'wpw-frontend-page',
+        'wpw_frontend_section'
+    );
+
     /* ### Login */
 
     add_settings_section(

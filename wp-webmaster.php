@@ -56,5 +56,3 @@ require_once $wpw_plugin_path . 'includes/crypter.php';
 
 // Include functions
 require_once $wpw_plugin_path . 'includes/functions.php';
-
-?>

@@ -68,5 +68,3 @@ if ( isset( $wpw_options['login_hide_language'] ) && !empty( $wpw_options['login
     add_filter('login_display_language_dropdown', function ($display) { return false; } );
 
 }
-
-?>

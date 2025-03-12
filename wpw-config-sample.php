@@ -33,5 +33,3 @@ $wpw_config = array(
     'brand_footnote'        => '',
     'storage_s3_endpoint'   => ''
 );
-
-?>

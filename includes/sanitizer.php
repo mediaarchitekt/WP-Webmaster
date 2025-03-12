@@ -77,6 +77,7 @@ function wpw_settings_sanitize($input){
         'smtp_logging',
         'frontend_enable',
         'frontend_cf7_popup',
+        'frontend_mediacontext_off',
         'login_enable',
         'login_hide_language',
         'backend_enable',
@@ -123,5 +124,3 @@ function wpw_settings_sanitize($input){
     return $sanitized_input;
 
 }
-
-?>

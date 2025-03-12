@@ -127,5 +127,3 @@ if ( isset( $wpw_options['privacy_google_fonts'] ) && $wpw_options['privacy_goog
     }
 
 }
-
-?>

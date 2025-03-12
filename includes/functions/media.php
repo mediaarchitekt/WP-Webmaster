@@ -104,5 +104,3 @@ if ( isset( $wpw_options['media_per_year'] ) && $wpw_options['media_per_year'] )
     } );
 
 }
-
-?>

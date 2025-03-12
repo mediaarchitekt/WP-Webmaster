@@ -17,5 +17,3 @@ add_filter( 's3_uploads_s3_client_params', function( $params ) use ( $wpw_option
     return $params;
 
 } );
-
-?>

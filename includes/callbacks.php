@@ -170,7 +170,7 @@ function wpw_frontend_callback() {
     $checked = isset($wpw_options['frontend_enable']) && $wpw_options['frontend_enable'] ? 'checked' : '';
 
     echo '<input type="checkbox" name="wpw_settings[frontend_enable]" ' . $checked . ' />';
-    echo '<p class="wpw-intro">Prevent individual defined categories from beeing displayed as blog posts at the frontend.</p>';
+    echo '<p class="wpw-intro">Prevent individual defined categories from beeing displayed as blog posts at the frontend, beautify Contact Form 7 with popup messages and protect media files form download via context menu.</p>';
 
 }
 
@@ -192,6 +192,17 @@ function wpw_frontend_cf7_popup_callback() {
 
     $checked = isset($wpw_options['frontend_cf7_popup']) && $wpw_options['frontend_cf7_popup'] ? 'checked' : '';
     echo '<label><input type="checkbox" name="wpw_settings[frontend_cf7_popup]" ' . $checked . ' /> Show form messages as popup</label><br>';
+
+}
+
+/* ### Frontend media context menus off */
+
+function wpw_frontend_mediacontext_off_callback() {
+
+    global $wpw_options;
+
+    $checked = isset($wpw_options['frontend_mediacontext_off']) && $wpw_options['frontend_mediacontext_off'] ? 'checked' : '';
+    echo '<label><input type="checkbox" name="wpw_settings[frontend_mediacontext_off]" ' . $checked . ' /> Disable download options for audio embeddings</label><br>';
 
 }
 
@@ -351,7 +362,7 @@ function wpw_media_callback() {
     $checked = isset($wpw_options['media_enable']) && $wpw_options['media_enable'] ? 'checked' : '';
 
     echo '<input type="checkbox" name="wpw_settings[media_enable]" ' . $checked . ' />';
-    echo '<p class="wpw-intro">Allows admins to upload SVG images and corrects the incorrect display in the media library and frontend. Overrides the upload path for files set in the media settings.</p>';
+    echo '<p class="wpw-intro"><br> Allows admins to upload SVG images and corrects the incorrect display in the media library and frontend. Overrides the upload path for files set in the media settings.</p>';
 
 }
 
@@ -628,5 +639,3 @@ function wpw_developer_activate_callback() {
     }
 
 }
-
-?>

@@ -76,5 +76,3 @@ if ( isset( $wpw_options['code_remove_relational_links'] ) && $wpw_options['code
         remove_action( 'admin_print_styles', 'print_emoji_styles' );
 
 }
-
-?>
