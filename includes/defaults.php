@@ -42,6 +42,7 @@ $wpw_default_options = array(
     'backend_enable'                    => false,
     'backend_main_admin'                => $wpw_backend_main_admin,
     'backend_mail_fatal_errors'         => true,
+    'backend_privacy_policy_rights'     => false,
     'backend_hide_adminbar_items'       => true,
     'backend_hide_adminbar'             => true,
     'backend_hide_menu_settings'        => true,

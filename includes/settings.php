@@ -372,6 +372,14 @@ function wpw_settings_init(){
     );
 
     add_settings_field(
+        'wpw_backend_set_field',
+        'Set',
+        'wpw_backend_set_callback',
+        'wpw-backend-page',
+        'wpw_backend_section'
+    );
+
+    add_settings_field(
         'wpw_backend_hide_field',
         'Hide',
         'wpw_backend_hide_callback',

@@ -284,6 +284,26 @@ function wpw_backend_main_admin_callback() {
 
 }
 
+/* ### Backend set fields */
+
+function wpw_backend_set_callback() {
+
+    $field = array(
+
+        'backend_privacy_policy_rights' => 'Allow editors to edit the privacy policy page',
+        
+    );
+
+    global $wpw_options;
+    foreach ($field as $function_key => $function_label) {
+
+        $checked = isset($wpw_options[$function_key]) && $wpw_options[$function_key] ? 'checked' : '';
+        echo '<label><input type="checkbox" name="wpw_settings[' . $function_key . ']" ' . $checked . ' /> ' . $function_label . '</label><br>';
+
+    }
+
+}
+
 /* ### Backend hide fields */
 
 function wpw_backend_hide_callback() {

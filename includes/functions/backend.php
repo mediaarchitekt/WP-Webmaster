@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 /* # Backend ------------------------------------------------------------------------------- */
 
-/* ## Error handling
+/* ## Set up mails and rights
 ------------------------------------------------------------------ */
 
 /* ## Sends all fatal error messages to the mail address above. */
@@ -17,6 +17,17 @@ if ( isset( $wpw_options['backend_mail_fatal_errors'] ) && $wpw_options['backend
         return $email_data;
 
     } );
+
+}
+
+if ( isset( $wpw_options['backend_privacy_policy_rights'] ) && $wpw_options['backend_privacy_policy_rights'] ) { 
+
+    add_filter( 'map_meta_cap', function( $caps, $cap ) {
+
+        if ( $cap !== 'manage_privacy_options' ) { return $caps; }
+        return array_diff( $caps, [ 'manage_options' ] );
+
+    }, 10, 2 );
 
 }
 
