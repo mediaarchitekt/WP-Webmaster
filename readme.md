@@ -54,6 +54,8 @@ Options for developing purposes. Not recommended for productive environments.
 
 ## Changelog
 
+### 1.8
+- Feature: Define the mail address, where fatal errors are sent to
 ### 1.7
 - Feature: Implement JavaScript for disabling context menus with download options for audio elements
 - Little code cleaning

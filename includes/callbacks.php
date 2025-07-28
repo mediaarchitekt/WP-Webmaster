@@ -278,6 +278,10 @@ function wpw_backend_main_admin_callback() {
     echo '<input type="text" size="48" id="wpw_backend_main_admin" name="wpw_settings[backend_main_admin]" placeholder="' . get_bloginfo('admin_email') . '" value="' . esc_attr($wpw_options['backend_main_admin']) . '" />';
     echo '<p class="wpw-description">Specify main admin by email<p>';
 
+    $checked = isset($wpw_options['backend_mail_fatal_errors']) && $wpw_options['backend_mail_fatal_errors'] ? 'checked' : '';
+
+    echo '<label><input type="checkbox" name="wpw_settings[backend_mail_fatal_errors]" ' . $checked . ' />Send all fatal error messages to the mail address above.</label><br>';
+
 }
 
 /* ### Backend hide fields */

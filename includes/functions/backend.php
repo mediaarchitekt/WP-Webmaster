@@ -4,6 +4,22 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 /* # Backend ------------------------------------------------------------------------------- */
 
+/* ## Error handling
+------------------------------------------------------------------ */
+
+/* ## Sends all fatal error messages to the mail address above. */
+
+if ( isset( $wpw_options['backend_mail_fatal_errors'] ) && $wpw_options['backend_mail_fatal_errors'] ) { 
+
+    add_filter('recovery_mode_email', function( $email_data ) {
+
+        $email_data['to'] = $wpw_options['backend_main_admin'];
+        return $email_data;
+
+    } );
+
+}
+
 /* ## Backend Cleanup
 ------------------------------------------------------------------ */
 

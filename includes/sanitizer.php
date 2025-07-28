@@ -81,6 +81,7 @@ function wpw_settings_sanitize($input){
         'login_enable',
         'login_hide_language',
         'backend_enable',
+        'backend_mail_fatal_errors',
         'backend_hide_adminbar_items',
         'backend_hide_adminbar',
         'backend_hide_menu_settings',
